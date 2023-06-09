@@ -1,4 +1,4 @@
-package com.codebq.customvalidator.Constraint;
+package com.codebq.customvalidator.constraint;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

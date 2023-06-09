@@ -1,11 +1,10 @@
-package com.codebq.customvalidator.Constraint;
+package com.codebq.customvalidator.constraint;
 
-import com.codebq.customvalidator.enums.Vasyas;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class ListAgainstEnumValidator implements ConstraintValidator<ListAgainstEnumConstraint, List<String>> {
 
@@ -13,18 +12,13 @@ public class ListAgainstEnumValidator implements ConstraintValidator<ListAgainst
 
   @Override
   public void initialize(ListAgainstEnumConstraint constraintAnnotation) {
-    enumValues = Stream.of(constraintAnnotation.enumClass().getEnumConstants())
-        .map(e -> en)
+    enumValues = Arrays.stream(constraintAnnotation.enumClass().getEnumConstants()).map(Enum::name).collect(Collectors.toList());
   }
 
   @Override
   public boolean isValid(List<String> strings, ConstraintValidatorContext constraintValidatorContext)
   {
-    return strings.stream().allMatch(this::stringExists);
-  }
-
-  private Boolean stringExists(String name) {
-    return Arrays.stream(Vasyas.values()).anyMatch(string -> string.name.equals(name));
+    return enumValues.containsAll(strings);
   }
 
 }
