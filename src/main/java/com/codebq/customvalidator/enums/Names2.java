@@ -1,6 +1,6 @@
 package com.codebq.customvalidator.enums;
 
-public enum Petyas {
+public enum Names2 {
   Petya,
   Petr
 }

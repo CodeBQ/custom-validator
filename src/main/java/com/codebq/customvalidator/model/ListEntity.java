@@ -2,8 +2,8 @@ package com.codebq.customvalidator.model;
 
 import com.codebq.customvalidator.constraint.ListAgainstEnumConstraint;
 import com.codebq.customvalidator.constraint.ValidEnumList;
-import com.codebq.customvalidator.enums.Petyas;
-import com.codebq.customvalidator.enums.Vasyas;
+import com.codebq.customvalidator.enums.Names2;
+import com.codebq.customvalidator.enums.Names1;
 import com.codebq.customvalidator.enums.WeekDays;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
@@ -19,11 +19,11 @@ public class ListEntity {
   private UUID id;
 
   @NotNull
-  @ListAgainstEnumConstraint(enumClass = Vasyas.class)
+  @ListAgainstEnumConstraint(enumClass = Names1.class)
   private List<String> items;
 
   @NotNull
-  @ListAgainstEnumConstraint(enumClass = Petyas.class)
+  @ListAgainstEnumConstraint(enumClass = Names2.class)
   private List<String> petyas;
 
   @ValidEnumList(enumClass = WeekDays.class)

@@ -1,6 +1,6 @@
 package com.codebq.customvalidator.controller;
 
-import com.codebq.customvalidator.enums.Vasyas;
+import com.codebq.customvalidator.enums.Names1;
 import com.codebq.customvalidator.model.ListEntity;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +14,7 @@ public class validatorExamples {
   @PostMapping(path = "list")
   String postList(@RequestBody @Valid ListEntity listEntity) throws NoSuchFieldException, IllegalAccessException {
 
-    Class<? extends Enum<?>> vs = Vasyas.class;
+    Class<? extends Enum<?>> vs = Names1.class;
 
     vs.getEnumConstants();
 
